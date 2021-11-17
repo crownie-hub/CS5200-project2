@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
   int i;
-  const int n = 1000;
+  const int n = 5;
   double *v = malloc(sizeof(double)*n);
   double **p = malloc(sizeof(double*)*n);
   pq *mypq;
@@ -21,13 +21,21 @@ int main(int argc, char *argv[])
   }
 
   /* begin sort */
-  for (i = 0; i < n; i++) pq_push(mypq, v[i], (void*)p[i]);
-  for (i = 0; i < n; i++) p[i] = pq_pop(mypq);
-  /* end sort */
-
   for (i = 0; i < n; i++) {
-    if (p[i]) printf("%g\n", *p[i]);
-  }
+  pq_push(mypq, v[i], (void*)p[i]);
+ // for (i = 0; i < n; i++) p[i] = pq_pop(mypq);
+  /* end sort */
+}
+print_link(mypq);
+printf("+++++++++++++++++++++\n");
+InsertionSort(mypq);
+
+
+print_link(mypq);
+
+  // for (i = 0; i < n; i++) {
+  //   if (p[i]) printf("%g\n", *p[i]);
+  // }
 
   pq_destroy(mypq);
 
